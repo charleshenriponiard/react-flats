@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
 class Flat extends Component {
+
+  handleClick = (e) => {
+    const { lng, lat } = this.props;
+    const flat = {lat: lat, lng: lng}
+    this.props.displayFlat(flat);
+  }
+
   render() {
     return (
       <div className="card" style={{backgroundImage:`url(${this.props.image})`, width: "100%"}}>
@@ -10,7 +17,7 @@ class Flat extends Component {
         <div className="card-description">
           <h2>{this.props.name}</h2>
         </div>
-        <a className="card-link" href="#"></a>
+        <a className="card-link" href="#" onClick={this.handleClick}></a>
       </div>   
     )
   }
